@@ -1,0 +1,6 @@
+Day i learning:
+when runing cmake we need to  build : cmake -S . -B build ( this create )
+cmake --build build
+
+test : ./build/city-sim
+Sanitazer is helping to understadn where and why the bug appears. Detectives.

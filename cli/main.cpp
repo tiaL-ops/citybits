@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-
+#include "kv/types.h"
 int main() {
     std::cout << "Hello, citybits storage engine!" << std::endl;
     std::string action_command;

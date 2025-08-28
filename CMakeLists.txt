@@ -7,9 +7,10 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Adds the command-line application executable
-add_executable(city-sim cli/main.cpp)
+# The executable will now be named "citybits"
+add_executable(${PROJECT_NAME} cli/main.cpp)
 
 # Enable AddressSanitizer and UndefinedBehaviorSanitizer for debugging
 set(SANITIZE_FLAGS "-fsanitize=address,undefined")
-target_compile_options(city-sim PRIVATE ${SANITIZE_FLAGS} -g)
-target_link_libraries(city-sim PRIVATE ${SANITIZE_FLAGS})
+target_compile_options(${PROJECT_NAME} PRIVATE ${SANITIZE_FLAGS} -g)
+target_link_libraries(${PROJECT_NAME} PRIVATE ${SANITIZE_FLAGS})

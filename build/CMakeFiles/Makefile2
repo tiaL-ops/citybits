@@ -63,11 +63,11 @@ CMAKE_BINARY_DIR = /Users/landy/Desktop/selfProject/citybits/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/city-sim.dir/all
+all: CMakeFiles/citybits.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/city-sim.dir/codegen
+codegen: CMakeFiles/citybits.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -75,40 +75,40 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/city-sim.dir/clean
+clean: CMakeFiles/citybits.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/city-sim.dir
+# Target rules for target CMakeFiles/citybits.dir
 
 # All Build rule for target.
-CMakeFiles/city-sim.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/city-sim.dir/build.make CMakeFiles/city-sim.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/city-sim.dir/build.make CMakeFiles/city-sim.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/landy/Desktop/selfProject/citybits/build/CMakeFiles --progress-num=1,2 "Built target city-sim"
-.PHONY : CMakeFiles/city-sim.dir/all
+CMakeFiles/citybits.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/citybits.dir/build.make CMakeFiles/citybits.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/citybits.dir/build.make CMakeFiles/citybits.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/landy/Desktop/selfProject/citybits/build/CMakeFiles --progress-num=1,2 "Built target citybits"
+.PHONY : CMakeFiles/citybits.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/city-sim.dir/rule: cmake_check_build_system
+CMakeFiles/citybits.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/landy/Desktop/selfProject/citybits/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/city-sim.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/citybits.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/landy/Desktop/selfProject/citybits/build/CMakeFiles 0
-.PHONY : CMakeFiles/city-sim.dir/rule
+.PHONY : CMakeFiles/citybits.dir/rule
 
 # Convenience name for target.
-city-sim: CMakeFiles/city-sim.dir/rule
-.PHONY : city-sim
+citybits: CMakeFiles/citybits.dir/rule
+.PHONY : citybits
 
 # codegen rule for target.
-CMakeFiles/city-sim.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/city-sim.dir/build.make CMakeFiles/city-sim.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/landy/Desktop/selfProject/citybits/build/CMakeFiles --progress-num=1,2 "Finished codegen for target city-sim"
-.PHONY : CMakeFiles/city-sim.dir/codegen
+CMakeFiles/citybits.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/citybits.dir/build.make CMakeFiles/citybits.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/landy/Desktop/selfProject/citybits/build/CMakeFiles --progress-num=1,2 "Finished codegen for target citybits"
+.PHONY : CMakeFiles/citybits.dir/codegen
 
 # clean rule for target.
-CMakeFiles/city-sim.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/city-sim.dir/build.make CMakeFiles/city-sim.dir/clean
-.PHONY : CMakeFiles/city-sim.dir/clean
+CMakeFiles/citybits.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/citybits.dir/build.make CMakeFiles/citybits.dir/clean
+.PHONY : CMakeFiles/citybits.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

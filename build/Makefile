@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named city-sim
+# Target rules for targets named citybits
 
 # Build rule for target.
-city-sim: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 city-sim
-.PHONY : city-sim
+citybits: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 citybits
+.PHONY : citybits
 
 # fast build rule for target.
-city-sim/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/city-sim.dir/build.make CMakeFiles/city-sim.dir/build
-.PHONY : city-sim/fast
+citybits/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/citybits.dir/build.make CMakeFiles/citybits.dir/build
+.PHONY : citybits/fast
 
 cli/main.o: cli/main.cpp.o
 .PHONY : cli/main.o
 
 # target to build an object file
 cli/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/city-sim.dir/build.make CMakeFiles/city-sim.dir/cli/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/citybits.dir/build.make CMakeFiles/citybits.dir/cli/main.cpp.o
 .PHONY : cli/main.cpp.o
 
 cli/main.i: cli/main.cpp.i
@@ -142,7 +142,7 @@ cli/main.i: cli/main.cpp.i
 
 # target to preprocess a source file
 cli/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/city-sim.dir/build.make CMakeFiles/city-sim.dir/cli/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/citybits.dir/build.make CMakeFiles/citybits.dir/cli/main.cpp.i
 .PHONY : cli/main.cpp.i
 
 cli/main.s: cli/main.cpp.s
@@ -150,7 +150,7 @@ cli/main.s: cli/main.cpp.s
 
 # target to generate assembly for a file
 cli/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/city-sim.dir/build.make CMakeFiles/city-sim.dir/cli/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/citybits.dir/build.make CMakeFiles/citybits.dir/cli/main.cpp.s
 .PHONY : cli/main.cpp.s
 
 # Help Target
@@ -161,7 +161,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... city-sim"
+	@echo "... citybits"
 	@echo "... cli/main.o"
 	@echo "... cli/main.i"
 	@echo "... cli/main.s"

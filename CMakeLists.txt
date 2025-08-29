@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Adds the command-line application executable
 # The executable will now be named "citybits"
 add_executable(${PROJECT_NAME} cli/main.cpp)
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(${PROJECT_NAME} PRIVATE kv)
 
 # Enable AddressSanitizer and UndefinedBehaviorSanitizer for debugging
 set(SANITIZE_FLAGS "-fsanitize=address,undefined")

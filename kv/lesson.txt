@@ -1,0 +1,5 @@
+day 1 : sanitizer helps you to kno where the bug is is why
+day 2: memory space. the key value 2 bits x 4 matches 8 bits (int 64) so no memory savings, 
+bits: --> save space not time.
+day 3: [magic][ver]...[xxh3] 
+        identifier.    see if it is corrupted

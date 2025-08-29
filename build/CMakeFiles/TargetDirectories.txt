@@ -1,3 +1,4 @@
+/Users/landy/Desktop/selfProject/citybits/build/CMakeFiles/xxhash.dir
 /Users/landy/Desktop/selfProject/citybits/build/CMakeFiles/citybits.dir
 /Users/landy/Desktop/selfProject/citybits/build/CMakeFiles/edit_cache.dir
 /Users/landy/Desktop/selfProject/citybits/build/CMakeFiles/rebuild_cache.dir

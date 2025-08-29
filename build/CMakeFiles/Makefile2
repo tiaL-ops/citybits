@@ -63,10 +63,12 @@ CMAKE_BINARY_DIR = /Users/landy/Desktop/selfProject/citybits/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/xxhash.dir/all
 all: CMakeFiles/citybits.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
+codegen: CMakeFiles/xxhash.dir/codegen
 codegen: CMakeFiles/citybits.dir/codegen
 .PHONY : codegen
 
@@ -75,14 +77,47 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/xxhash.dir/clean
 clean: CMakeFiles/citybits.dir/clean
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/xxhash.dir
+
+# All Build rule for target.
+CMakeFiles/xxhash.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xxhash.dir/build.make CMakeFiles/xxhash.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xxhash.dir/build.make CMakeFiles/xxhash.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/landy/Desktop/selfProject/citybits/build/CMakeFiles --progress-num= "Built target xxhash"
+.PHONY : CMakeFiles/xxhash.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/xxhash.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/landy/Desktop/selfProject/citybits/build/CMakeFiles 0
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/xxhash.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/landy/Desktop/selfProject/citybits/build/CMakeFiles 0
+.PHONY : CMakeFiles/xxhash.dir/rule
+
+# Convenience name for target.
+xxhash: CMakeFiles/xxhash.dir/rule
+.PHONY : xxhash
+
+# codegen rule for target.
+CMakeFiles/xxhash.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xxhash.dir/build.make CMakeFiles/xxhash.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/landy/Desktop/selfProject/citybits/build/CMakeFiles --progress-num= "Finished codegen for target xxhash"
+.PHONY : CMakeFiles/xxhash.dir/codegen
+
+# clean rule for target.
+CMakeFiles/xxhash.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xxhash.dir/build.make CMakeFiles/xxhash.dir/clean
+.PHONY : CMakeFiles/xxhash.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/citybits.dir
 
 # All Build rule for target.
-CMakeFiles/citybits.dir/all:
+CMakeFiles/citybits.dir/all: CMakeFiles/xxhash.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/citybits.dir/build.make CMakeFiles/citybits.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/citybits.dir/build.make CMakeFiles/citybits.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/landy/Desktop/selfProject/citybits/build/CMakeFiles --progress-num=1,2 "Built target citybits"

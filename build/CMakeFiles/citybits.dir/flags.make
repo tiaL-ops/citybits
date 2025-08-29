@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/landy/Desktop/selfProject/citybits
+CXX_INCLUDES = -I/Users/landy/Desktop/selfProject/citybits -I/Users/landy/Desktop/selfProject/citybits/build/_deps/xxhash-src
 
 CXX_FLAGSarm64 = -std=gnu++17 -arch arm64 -fsanitize=address,undefined -g
 

@@ -57,10 +57,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/landy/Desktop/selfProject/citybits
+CMAKE_SOURCE_DIR = /Users/landy/Desktop/selfProject/citybits/build/_deps/xxhash-subbuild
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/landy/Desktop/selfProject/citybits/build
+CMAKE_BINARY_DIR = /Users/landy/Desktop/selfProject/citybits/build/_deps/xxhash-subbuild
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,10 +87,17 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/landy/Desktop/selfProject/citybits/build/CMakeFiles /Users/landy/Desktop/selfProject/citybits/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/landy/Desktop/selfProject/citybits/build/_deps/xxhash-subbuild/CMakeFiles /Users/landy/Desktop/selfProject/citybits/build/_deps/xxhash-subbuild//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/landy/Desktop/selfProject/citybits/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/landy/Desktop/selfProject/citybits/build/_deps/xxhash-subbuild/CMakeFiles 0
 .PHONY : all
+
+# The main codegen target
+codegen: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/landy/Desktop/selfProject/citybits/build/_deps/xxhash-subbuild/CMakeFiles /Users/landy/Desktop/selfProject/citybits/build/_deps/xxhash-subbuild//CMakeFiles/progress.marks
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 codegen
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/landy/Desktop/selfProject/citybits/build/_deps/xxhash-subbuild/CMakeFiles 0
+.PHONY : codegen
 
 # The main clean target
 clean:
@@ -117,54 +124,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named xxhash
+# Target rules for targets named xxhash-populate
 
 # Build rule for target.
-xxhash: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 xxhash
-.PHONY : xxhash
+xxhash-populate: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 xxhash-populate
+.PHONY : xxhash-populate
 
 # fast build rule for target.
-xxhash/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/xxhash.dir/build.make CMakeFiles/xxhash.dir/build
-.PHONY : xxhash/fast
-
-#=============================================================================
-# Target rules for targets named citybits
-
-# Build rule for target.
-citybits: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 citybits
-.PHONY : citybits
-
-# fast build rule for target.
-citybits/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/citybits.dir/build.make CMakeFiles/citybits.dir/build
-.PHONY : citybits/fast
-
-cli/main.o: cli/main.cpp.o
-.PHONY : cli/main.o
-
-# target to build an object file
-cli/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/citybits.dir/build.make CMakeFiles/citybits.dir/cli/main.cpp.o
-.PHONY : cli/main.cpp.o
-
-cli/main.i: cli/main.cpp.i
-.PHONY : cli/main.i
-
-# target to preprocess a source file
-cli/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/citybits.dir/build.make CMakeFiles/citybits.dir/cli/main.cpp.i
-.PHONY : cli/main.cpp.i
-
-cli/main.s: cli/main.cpp.s
-.PHONY : cli/main.s
-
-# target to generate assembly for a file
-cli/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/citybits.dir/build.make CMakeFiles/citybits.dir/cli/main.cpp.s
-.PHONY : cli/main.cpp.s
+xxhash-populate/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xxhash-populate.dir/build.make CMakeFiles/xxhash-populate.dir/build
+.PHONY : xxhash-populate/fast
 
 # Help Target
 help:
@@ -172,13 +142,10 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... codegen"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... citybits"
-	@echo "... xxhash"
-	@echo "... cli/main.o"
-	@echo "... cli/main.i"
-	@echo "... cli/main.s"
+	@echo "... xxhash-populate"
 .PHONY : help
 
 

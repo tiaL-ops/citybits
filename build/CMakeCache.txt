@@ -213,14 +213,28 @@ CMAKE_TAPI:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeD
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//Value Computed by CMake
-city_sim_storage_BINARY_DIR:STATIC=/Users/landy/Desktop/selfProject/citybits/build
+//Directory under which to collect all populated content
+FETCHCONTENT_BASE_DIR:PATH=/Users/landy/Desktop/selfProject/citybits/build/_deps
 
-//Value Computed by CMake
-city_sim_storage_IS_TOP_LEVEL:STATIC=ON
+//Disables all attempts to download or update content and assumes
+// source dirs already exist
+FETCHCONTENT_FULLY_DISCONNECTED:BOOL=OFF
 
-//Value Computed by CMake
-city_sim_storage_SOURCE_DIR:STATIC=/Users/landy/Desktop/selfProject/citybits
+//Enables QUIET option for all content population
+FETCHCONTENT_QUIET:BOOL=ON
+
+//When not empty, overrides where to find pre-populated content
+// for xxhash
+FETCHCONTENT_SOURCE_DIR_XXHASH:PATH=
+
+//Enables UPDATE_DISCONNECTED behavior for all content population
+FETCHCONTENT_UPDATES_DISCONNECTED:BOOL=OFF
+
+//Enables UPDATE_DISCONNECTED behavior just for population of xxhash
+FETCHCONTENT_UPDATES_DISCONNECTED_XXHASH:BOOL=OFF
+
+//Git command line client
+GIT_EXECUTABLE:FILEPATH=/opt/homebrew/bin/git
 
 //Value Computed by CMake
 citybits_BINARY_DIR:STATIC=/Users/landy/Desktop/selfProject/citybits/build
@@ -365,4 +379,6 @@ CMAKE_TAPI-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GIT_EXECUTABLE
+GIT_EXECUTABLE-ADVANCED:INTERNAL=1
 

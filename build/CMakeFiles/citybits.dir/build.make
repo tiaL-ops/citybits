@@ -95,6 +95,7 @@ citybits_EXTERNAL_OBJECTS =
 
 citybits: CMakeFiles/citybits.dir/cli/main.cpp.o
 citybits: CMakeFiles/citybits.dir/build.make
+citybits: libxxhash.a
 citybits: CMakeFiles/citybits.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/landy/Desktop/selfProject/citybits/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable citybits"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/citybits.dir/link.txt --verbose=$(VERBOSE)

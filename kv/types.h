@@ -1,10 +1,7 @@
-//Key should contain four uint16_t members.
-
-//Value should be a simple "Plain Old Data" (POD) struct. A single uint64_t member would be perfect for that.
-
-#pragma once // we want to avoid multiple inclusions of this header file
-
+#pragma once
+#include "xxhash.h"
 #include <cstdint>
+
 namespace kv {
 
 // A 64-bit key for our key-value store.
@@ -18,4 +15,23 @@ struct Key {
 struct Value {
     uint64_t data;
 };
-} 
+
+// The header for a single record in the Write-Ahead Log.
+struct WALHeader {
+    static constexpr uint32_t MAGIC = 0xDEADBEEF; // lol 
+    static constexpr uint16_t VERSION = 1;
+
+    uint32_t magic;
+    uint16_t version;
+    uint16_t reserved; 
+    uint64_t checksum; /
+};
+
+// Represents a complete record in the WAL.
+struct WALRecord {
+    WALHeader header;
+    Key key;
+    Value value;
+};
+
+} // namespace kv

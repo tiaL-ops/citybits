@@ -142,6 +142,30 @@ citybits/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/citybits.dir/build.make CMakeFiles/citybits.dir/build
 .PHONY : citybits/fast
 
+_deps/xxhash-src/xxhash.o: _deps/xxhash-src/xxhash.c.o
+.PHONY : _deps/xxhash-src/xxhash.o
+
+# target to build an object file
+_deps/xxhash-src/xxhash.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xxhash.dir/build.make CMakeFiles/xxhash.dir/_deps/xxhash-src/xxhash.c.o
+.PHONY : _deps/xxhash-src/xxhash.c.o
+
+_deps/xxhash-src/xxhash.i: _deps/xxhash-src/xxhash.c.i
+.PHONY : _deps/xxhash-src/xxhash.i
+
+# target to preprocess a source file
+_deps/xxhash-src/xxhash.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xxhash.dir/build.make CMakeFiles/xxhash.dir/_deps/xxhash-src/xxhash.c.i
+.PHONY : _deps/xxhash-src/xxhash.c.i
+
+_deps/xxhash-src/xxhash.s: _deps/xxhash-src/xxhash.c.s
+.PHONY : _deps/xxhash-src/xxhash.s
+
+# target to generate assembly for a file
+_deps/xxhash-src/xxhash.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xxhash.dir/build.make CMakeFiles/xxhash.dir/_deps/xxhash-src/xxhash.c.s
+.PHONY : _deps/xxhash-src/xxhash.c.s
+
 cli/main.o: cli/main.cpp.o
 .PHONY : cli/main.o
 
@@ -176,6 +200,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... citybits"
 	@echo "... xxhash"
+	@echo "... _deps/xxhash-src/xxhash.o"
+	@echo "... _deps/xxhash-src/xxhash.i"
+	@echo "... _deps/xxhash-src/xxhash.s"
 	@echo "... cli/main.o"
 	@echo "... cli/main.i"
 	@echo "... cli/main.s"

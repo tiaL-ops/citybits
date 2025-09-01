@@ -24,7 +24,7 @@ struct WALHeader {
     uint32_t magic;
     uint16_t version;
     uint16_t reserved; 
-    uint64_t checksum; /
+    uint64_t checksum; 
 };
 
 // Represents a complete record in the WAL.

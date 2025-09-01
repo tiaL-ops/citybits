@@ -1,1 +1,1 @@
-/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/citybits.dir/cli/main.cpp.o -o citybits  libxxhash.a -fsanitize=address,undefined
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names -fsanitize=address,undefined CMakeFiles/citybits.dir/cli/main.cpp.o -o citybits  libxxhash.a

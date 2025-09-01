@@ -88,12 +88,12 @@ clean: CMakeFiles/citybits.dir/clean
 CMakeFiles/xxhash.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/xxhash.dir/build.make CMakeFiles/xxhash.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/xxhash.dir/build.make CMakeFiles/xxhash.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/landy/Desktop/selfProject/citybits/build/CMakeFiles --progress-num= "Built target xxhash"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/landy/Desktop/selfProject/citybits/build/CMakeFiles --progress-num=3,4 "Built target xxhash"
 .PHONY : CMakeFiles/xxhash.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/xxhash.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/landy/Desktop/selfProject/citybits/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/landy/Desktop/selfProject/citybits/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/xxhash.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/landy/Desktop/selfProject/citybits/build/CMakeFiles 0
 .PHONY : CMakeFiles/xxhash.dir/rule
@@ -105,7 +105,7 @@ xxhash: CMakeFiles/xxhash.dir/rule
 # codegen rule for target.
 CMakeFiles/xxhash.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/xxhash.dir/build.make CMakeFiles/xxhash.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/landy/Desktop/selfProject/citybits/build/CMakeFiles --progress-num= "Finished codegen for target xxhash"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/landy/Desktop/selfProject/citybits/build/CMakeFiles --progress-num=3,4 "Finished codegen for target xxhash"
 .PHONY : CMakeFiles/xxhash.dir/codegen
 
 # clean rule for target.
@@ -125,7 +125,7 @@ CMakeFiles/citybits.dir/all: CMakeFiles/xxhash.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/citybits.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/landy/Desktop/selfProject/citybits/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/landy/Desktop/selfProject/citybits/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/citybits.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/landy/Desktop/selfProject/citybits/build/CMakeFiles 0
 .PHONY : CMakeFiles/citybits.dir/rule

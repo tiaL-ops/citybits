@@ -9,8 +9,8 @@
 // Function to write a single record to the Write-Ahead Log 
 bool write_to_wal(const kv::Key& key, const kv::Value& value) {
     kv::WALRecord record;
-    record.header.magic = kv.WALHeader::MAGIC;
-    record.header.version = kv.WALHeader::VERSION;
+    record.header.magic = kv::WALHeader::MAGIC;
+    record.header.version = kv::WALHeader::VERSION;
     record.header.reserved = 0;
     record.key = key;
     record.value = value;

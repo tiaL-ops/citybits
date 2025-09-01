@@ -27,7 +27,7 @@ set_property(GLOBAL PROPERTY _CMAKE_FindGit_GIT_EXECUTABLE_VERSION
 
 include(ExternalProject)
 ExternalProject_Add(xxhash-populate
-                     "UPDATE_DISCONNECTED" "False" "GIT_REPOSITORY" "https://github.com/Cyan4973/xxHash.git" "EXTERNALPROJECT_INTERNAL_ARGUMENT_SEPARATOR" "GIT_TAG" "v0.8.2"
+                     "UPDATE_DISCONNECTED" "False" "GIT_REPOSITORY" "https://github.com/Cyan4973/xxHash.git" "EXTERNALPROJECT_INTERNAL_ARGUMENT_SEPARATOR" "GIT_TAG" "v0.8.1"
                     SOURCE_DIR          "/Users/landy/Desktop/selfProject/citybits/build/_deps/xxhash-src"
                     BINARY_DIR          "/Users/landy/Desktop/selfProject/citybits/build/_deps/xxhash-build"
                     CONFIGURE_COMMAND   ""

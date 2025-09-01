@@ -52,13 +52,13 @@ endif()
 
 execute_process(
   COMMAND "/opt/homebrew/bin/git"
-          checkout "v0.8.2" --
+          checkout "v0.8.1" --
   WORKING_DIRECTORY "/Users/landy/Desktop/selfProject/citybits/build/_deps/xxhash-src"
   RESULT_VARIABLE error_code
   ${maybe_show_command}
 )
 if(error_code)
-  message(FATAL_ERROR "Failed to checkout tag: 'v0.8.2'")
+  message(FATAL_ERROR "Failed to checkout tag: 'v0.8.1'")
 endif()
 
 set(init_submodules TRUE)

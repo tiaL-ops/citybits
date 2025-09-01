@@ -1,1 +1,3 @@
 I’m building a low-level CLI city-sim whose storage layer is a miniature LSM-tree key-value engine so I can learn systems internals. Each write is appended to a WAL for crash safety and applied to a mutable in-memory MemTable; when it fills, we freeze it and flush a sorted, checksummed SSTable (with index + Bloom filter). Background compaction merges overlapping SSTables, uses sequence numbers and tombstones to drop dead versions, and rewrites surviving keys; Bloom filters just help skip files on lookups (they don’t determine liveness). Reads are lock-free via versioned views, so queries run while compactions proceed
+
+update: better do a build crash game to understadni t better ig

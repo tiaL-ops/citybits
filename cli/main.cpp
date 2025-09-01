@@ -7,6 +7,7 @@
 #include <vector>
 #include <iostream>
 #include <stdexcept>
+#include <fstream>
 
 #include <unistd.h>
 #include <fcntl.h>
@@ -17,40 +18,9 @@
 #endif
 
 #include "xxhash.h"
-
-// ---------------- kv types (unchanged layout) ----------------
-namespace kv {
-
-struct Key {
-    uint16_t zone_id;
-    uint16_t object_type;
-    uint16_t x;
-    uint16_t y;
-};
-static_assert(sizeof(Key) == 8, "Key must be 8 bytes");
-
-struct Value {
-    uint64_t data;
-};
-static_assert(sizeof(Value) == 8, "Value must be 8 bytes");
-
-struct WALHeader {
-    static constexpr uint32_t MAGIC = 0xDEADBEEF;
-    static constexpr uint16_t VERSION = 1;
-
-    uint32_t magic;
-    uint16_t version;
-    uint16_t reserved;
-    uint64_t checksum; // XXH3 over [key][value]
-};
-
-struct WALRecord {
-    WALHeader header;
-    Key key;
-    Value value;
-};
-
-} // namespace kv
+#include "kv/types.h"
+#include "kv/memtable.h"
+#include "kv/sstable.h"
 
 // -------------- little-endian helpers (portable) --------------
 static inline uint16_t bswap16(uint16_t x){ return uint16_t((x>>8)|(x<<8)); }
@@ -174,11 +144,38 @@ private:
     size_t batch_bytes_;
 };
 
+// ----------------------- WAL Replay (Day 5) -------------------------
+void replay_wal(const std::string& path, kv::MemTable& memtable) {
+    std::ifstream wal_file(path, std::ios::binary);
+    if (!wal_file) {
+        std::cout << "No existing WAL file found or could not open. Starting fresh." << std::endl;
+        return;
+    }
+
+    char buffer[sizeof(kv::WALRecord)];
+    while (wal_file.read(buffer, sizeof(kv::WALRecord))) {
+        kv::WALRecord record;
+        std::memcpy(&record, buffer, sizeof(kv::WALRecord));
+        
+        // You would validate checksum here in a real implementation!
+        
+        memtable.put(record.key, record.value);
+    }
+    std::cout << "WAL replay completed." << std::endl;
+}
+
+
 // -------------------------- Demo REPL ------------------------
 int main() {
     std::cout << "Hello, citybits storage engine!" << std::endl;
+    
+    std::string wal_path = "citybits.wal";
+    kv::MemTable memtable;
 
-    WALWriter wal("citybits.wal", 256 * 1024); // 256 KiB batch
+    // Day 5: Crash & Replay
+    replay_wal(wal_path, memtable);
+
+    WALWriter wal(wal_path, 256 * 1024); // 256 KiB batch
     std::string action_command;
     uint64_t seq = 1; // monotonic for easy hexdump/crash tests
 
@@ -189,18 +186,43 @@ int main() {
         if (action_command == "build") {
             kv::Key   k{1, 100, 12, 34};
             kv::Value v{seq++};
-            if (!wal.append(k, v)) std::cerr << "append failed\n";
+            if (wal.append(k, v)) {
+                memtable.put(k, v);
+            } else {
+                std::cerr << "append failed\n";
+            }
         } else if (action_command == "del") {
             kv::Key   k{1, 100, 12, 34};
-            kv::Value tomb{0};
-            if (!wal.append(k, tomb)) std::cerr << "append failed\n";
+            kv::Value tomb{0}; // Tombstone
+            if (wal.append(k, tomb)) {
+                memtable.put(k, tomb);
+            } else {
+                std::cerr << "append failed\n";
+            }
         } else if (action_command == "sync") {
             if (!wal.flush(true)) std::cerr << "flush failed\n";
+        } else if (action_command == "flush") {
+            if (!memtable.is_empty()) {
+                std::string sstable_path = "sstable_" + std::to_string(std::time(nullptr)) + ".db";
+                std::cout << "Flushing MemTable to " << sstable_path << std::endl;
+                if(kv::SSTableWriter::flush_memtable(memtable, sstable_path)){
+                    memtable.clear();
+                    // In a real system you might truncate the WAL here after a successful flush
+                } else {
+                    std::cerr << "SSTable flush failed\n";
+                }
+            } else {
+                std::cout << "MemTable is empty, nothing to flush." << std::endl;
+            }
         } else if (action_command == "spam") {
             for (int i = 0; i < 10000; ++i) {
                 kv::Key k{1, 100, (uint16_t)(i%256), (uint16_t)((i/256)%256)};
                 kv::Value v{seq++};
-                if (!wal.append(k, v)) { std::cerr << "append failed\n"; break; }
+                if (wal.append(k, v)) {
+                    memtable.put(k,v);
+                } else { 
+                    std::cerr << "append failed\n"; break; 
+                }
             }
             if (!wal.flush(true)) std::cerr << "flush failed\n";
             std::cout << "synced up to seq " << (seq-1) << "\n";
